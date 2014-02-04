@@ -51,7 +51,7 @@ amqp-publish        Publish a message on an AMQP server
 
 
 %prep
-%setup -q -n rabbitmq-c-rabbitmq-c-v%{version}
+%setup -q
 
 # Copy sources to be included in -devel docs.
 cp -pr examples Examples
