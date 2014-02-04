@@ -6,7 +6,7 @@ License:   MIT
 Group:     System Environment/Libraries
 URL:       https://github.com/alanxz/rabbitmq-c
 
-Source0:   https://github.com/alanxz/rabbitmq-c/archive/rabbitmq-c-v%{version}.tar.gz
+Source0:   https://github.com/alanxz/rabbitmq-c/archive/rabbitmq-c-%{version}.tar.gz
 
 BuildRequires: libtool
 BuildRequires: python-simplejson
