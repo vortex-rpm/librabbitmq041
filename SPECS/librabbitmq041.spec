@@ -1,3 +1,5 @@
+%define	_original_name librabbitmq
+
 Name:      librabbitmq041
 Summary:   Client library for AMQP
 Version:   0.4.1
@@ -14,7 +16,7 @@ BuildRequires: python-simplejson
 BuildRequires: popt-devel
 # For man page
 BuildRequires: xmlto
-Conflicts:     librabbitmq
+Conflicts:     %{_original_name}
 
 
 %description
@@ -26,7 +28,7 @@ speaking protocol versions 0-9-1.
 Summary:    Header files and development libraries for %{name}
 Group:      Development/Libraries
 Requires:   %{name}%{?_isa} = %{version}-%{release}
-Conflicts:  librabbitmq-devel
+Conflicts:  %{_original_name}-devel
 
 %description devel
 This package contains the header files and development libraries
@@ -37,7 +39,7 @@ for %{name}.
 Summary:    Example tools built using the librabbitmq package
 Group:      Development/Libraries
 Requires:   %{name}%{?_isa} = %{version}
-Conflicts:  librabbitmq-tools
+Conflicts:  %{_original_name}-tools
 
 %description tools
 This package contains example tools built using %{name}.
@@ -51,7 +53,7 @@ amqp-publish        Publish a message on an AMQP server
 
 
 %prep
-%setup -q -n rabbitmq-c-%{version}
+%setup -q -n %{_original_name}-c-%{version}
 
 # Copy sources to be included in -devel docs.
 cp -pr examples Examples
@@ -66,7 +68,7 @@ make %{_smp_mflags}
 %install
 make install  DESTDIR="%{buildroot}"
 
-rm %{buildroot}%{_libdir}/%{name}.la
+rm %{buildroot}%{_libdir}/%{_original_name}.la
 
 
 %check
@@ -80,12 +82,12 @@ make check
 
 %files
 %doc AUTHORS README.md THANKS TODO LICENSE-MIT
-%{_libdir}/%{name}.so.1*
+%{_libdir}/%{_original_name}.so.1*
 
 
 %files devel
 %doc Examples
-%{_libdir}/%{name}.so
+%{_libdir}/%{_original_name}.so
 %{_includedir}/amqp*
 %{_libdir}/pkgconfig/librabbitmq.pc
 
